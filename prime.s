@@ -21,7 +21,7 @@ modulo:
 	cmpq	$0, %rsi
 	je	done
 	cmpq	$0, %rdi
-	js	mod_loop
+	jge	mod_loop # wrong jump condition
 
 done:
 	xorq	%rax, %rax
