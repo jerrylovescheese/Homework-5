@@ -85,7 +85,6 @@ prime:
 
 	# TO DO: write this function
 	movq	$1, %rdx
-	incq	%rdx
 	cmpq	%rdx, %rdi
 	jl	prime_loop
 
@@ -96,6 +95,7 @@ prime_loop:
 	call	gcd
 	cmpq	$1, %rax
 	jne	prime_ret_0
+	addq	$1, %rdx
 	jmp	prime_loop
 	retq
 
