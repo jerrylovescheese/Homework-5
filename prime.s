@@ -89,15 +89,14 @@ prime:
 	jl	prime_loop
 
 prime_loop:
+	addq	$1, %rdx
 	cmpq	%rdx, %rdi
 	jl	prime_loop_exit
 	movq	%rdx, %rsi # make i the 2nd parameter
 	call	gcd
 	cmpq	$1, %rax
 	jne	prime_ret_0
-	addq	$1, %rdx
 	jmp	prime_loop
-	retq
 
 prime_loop_exit:
 	movq	$1, %rax
